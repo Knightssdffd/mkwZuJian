@@ -5,11 +5,9 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.example.aksy.myapplication.R;
 import com.example.aksy.myapplication.activity.base.BaseActivity;
 import com.example.aksy.myapplication.view.fragment.home.HomeFragment;
@@ -28,6 +26,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private RelativeLayout mPondLayout;
     private RelativeLayout mMessageLayout;
     private RelativeLayout mMineLayout;
+
     private TextView mHomeView;
     private TextView mPondView;
     private TextView mMessageView;
@@ -84,7 +83,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         if (fragment != null) {
             ft.hide(fragment);
         }
-
     }
 
 

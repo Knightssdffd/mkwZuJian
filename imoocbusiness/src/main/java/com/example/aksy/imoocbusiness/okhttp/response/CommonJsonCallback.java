@@ -2,6 +2,7 @@ package com.example.aksy.imoocbusiness.okhttp.response;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import com.example.aksy.imoocbusiness.okhttp.exception.OkHttpException;
 import com.example.aksy.imoocbusiness.okhttp.listener.DisposeDataHandle;
@@ -46,6 +47,7 @@ public class CommonJsonCallback implements Callback {
         mDeliveryHandler.post(new Runnable() {
             @Override
             public void run() {
+                Log.e("qqcw","aaaaaaaaaaaaa");
                 mListener.onFailure(new OkHttpException(NETWORK_ERROR, e));
             }
         });
@@ -56,6 +58,7 @@ public class CommonJsonCallback implements Callback {
     @Override
     public void onResponse(Call call, Response response) throws IOException {
         final String result = response.body().string();
+        Log.e("qqcw",result);
         mDeliveryHandler.post(new Runnable() {
             @Override
             public void run() {
@@ -98,4 +101,7 @@ public class CommonJsonCallback implements Callback {
             mListener.onFailure(new OkHttpException(OTHER_ERROR, e.getMessage()));
         }
     }
+
+
+
 }

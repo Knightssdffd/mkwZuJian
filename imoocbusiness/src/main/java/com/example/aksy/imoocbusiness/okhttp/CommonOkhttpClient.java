@@ -1,6 +1,7 @@
 package com.example.aksy.imoocbusiness.okhttp;
 
 import com.example.aksy.imoocbusiness.okhttp.https.HttpsUtils;
+import com.example.aksy.imoocbusiness.okhttp.listener.DisposeDataHandle;
 import com.example.aksy.imoocbusiness.okhttp.response.CommonJsonCallback;
 
 import java.util.concurrent.TimeUnit;
@@ -9,7 +10,6 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSession;
 
 import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
@@ -40,22 +40,41 @@ public class CommonOkhttpClient {
                 return true;
             }
         });
-        okHttpBuilder.sslSocketFactory(HttpsUtils.getSslSocketFactory());
+//        okHttpBuilder.sslSocketFactory(HttpsUtils.getSslSocketFactory());
 
         //生成client对象
         mOkHttpClient = okHttpBuilder.build();
     }
 
+//    /**
+//     * 发送具体的http/https请求
+//     *
+//     * @param request
+//     * @param commCallback
+//     * @return Call
+//     */
+//    public static Call sendRequest(Request request, CommonJsonCallback commCallback) {
+//        Call call = mOkHttpClient.newCall(request);
+//        call.enqueue(commCallback);
+//        return call;
+//    }
+
     /**
-     * 发送具体的http/https请求
+     * 通过构造好的Request,Callback去发送请求
      *
      * @param request
-     * @param commCallback
-     * @return Call
+     * @param handle
+     * @return
      */
-    public static Call sendRequest(Request request, CommonJsonCallback commCallback) {
+    public static Call get(Request request, DisposeDataHandle handle) {
         Call call = mOkHttpClient.newCall(request);
-        call.enqueue(commCallback);
+        call.enqueue(new CommonJsonCallback(handle));
+        return call;
+    }
+
+    public static Call post(Request request, DisposeDataHandle handle) {
+        Call call = mOkHttpClient.newCall(request);
+        call.enqueue(new CommonJsonCallback(handle));
         return call;
     }
 

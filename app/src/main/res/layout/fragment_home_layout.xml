@@ -21,8 +21,10 @@
             android:id="@+id/category_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/category" />
 
         <TextView
@@ -45,10 +47,9 @@
         android:id="@+id/loading_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:scaleType="center"
         android:src="@drawable/loading_data_anim" />
-    <!--android:background="@color/white"-->
-
 
     <ListView
         android:id="@+id/list_view"

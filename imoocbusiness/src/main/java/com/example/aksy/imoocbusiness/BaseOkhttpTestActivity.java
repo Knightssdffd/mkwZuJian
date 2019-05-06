@@ -43,18 +43,18 @@ public class BaseOkhttpTestActivity extends AppCompatActivity {
         });
     }
 
-    private void test() {
-        CommonOkhttpClient.sendRequest(CommonRequest.createGetRequest("", null),
-                new CommonJsonCallback(new DisposeDataHandle(new DisposeDataListener() {
-                    @Override
-                    public void onSuccess(Object responseObj) {
-
-                    }
-
-                    @Override
-                    public void onFailure(Object reasonObj) {
-
-                    }
-                })));
-    }
+//    private void test() {
+//        CommonOkhttpClient.sendRequest(CommonRequest.createGetRequest("", null),
+//                new CommonJsonCallback(new DisposeDataHandle(new DisposeDataListener() {
+//                    @Override
+//                    public void onSuccess(Object responseObj) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Object reasonObj) {
+//
+//                    }
+//                })));
+//    }
 }
